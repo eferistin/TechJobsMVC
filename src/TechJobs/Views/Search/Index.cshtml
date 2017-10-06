@@ -27,10 +27,27 @@
 
 <hr />
 
-@if (ViewBag.jobs != null)
+@if (ViewBag.jobs != null)// if theres actually jobs, then create a loop to show jobs.
 {
 
     <h3>@ViewBag.jobs.Count Result(s)</h3>
+   
 
-    // TODO #2 - Loop over jobs dictionary and display all job fields 
+    // TODO #2 - Loop over jobs dictionary and display all job fields
+    
+        @foreach (Dictionary<string, string> perJob in ViewBag.jobs)
+        {
+            <table class="job-listing">
+                <thread>
+
+                    @foreach (KeyValuePair<string, string> thejob in perJob)
+                    {
+                        <tr><th>@thejob.Key  &nbsp;&nbsp;&nbsp;@thejob.Value</th></tr>
+
+                    }
+
+                </thread>
+            </table>
+        }
+
 }
